@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AudioPlayer from './AudioPlayer';
+import '98.css';
 
-ReactDOM.render(<AudioPlayer />, document.getElementById('root'));
+import App from './App';
+
+ReactDOM.render(<App />, document.querySelector('#root'));

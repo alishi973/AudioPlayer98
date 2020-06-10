@@ -1,0 +1,9 @@
+#audioPlayer {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  overflow: hidden;
+}
+#audioPlayer img {
+  width: 500px;
+}
