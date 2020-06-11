@@ -3,7 +3,28 @@
   width: 100%;
   min-width: 100%;
   overflow: hidden;
+  height: 150px;
 }
-#audioPlayer img {
+.audioPlayer__cover {
+  max-width: 20%;
+  min-width: 150px;
+  width: auto;
+  height: auto;
+}
+.audioPlayer__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.audioPlayer__controls__buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#root {
   width: 500px;
+  margin: auto;
 }
