@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const link = 'https://nex1music.ir/upload/153452501374701878octave-savage-nist.jpg';
+const simpleMusicLink = 'https://dl.nex1music.ir/1397/05/26/Octave%20-%20Savage%20Nist%20[128].mp3?time=1591897792&filename=/1397/05/26/Octave%20-%20Savage%20Nist%20[128].mp3';
 
 const AudioPlayer = (props) => {
-  const link = props.link || 'https://nex1music.ir/upload/153452501374701878octave-savage-nist.jpg';
-  const simpleMusicLink = 'https://dl.nex1music.ir/1397/05/26/Octave%20-%20Savage%20Nist%20[128].mp3?time=1591897792&filename=/1397/05/26/Octave%20-%20Savage%20Nist%20[128].mp3';
+  const [music, musicSet] = useState({ audioLink: null, audio: null, isPlayed: false });
+  const onPlayClick = () => {
+    musicSet((lastMusic) => ({ ...lastMusic, isPlayed: !lastMusic.isPlayed }));
+  };
   return (
     <div className='window'>
       <div className='title-bar'>
@@ -26,7 +31,7 @@ const AudioPlayer = (props) => {
             </div>
             <div className='audioPlayer__controls__buttons'>
               <button> {'<<'} </button>
-              <button>Play</button>
+              <button onClick={onPlayClick}>{music.isPlayed ? 'Stop' : 'Play!'}</button>
               <button>{'>>'}</button>
             </div>
           </div>
