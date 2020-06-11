@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '98.css';
-
 import App from './App';
+import '98.css';
 
 ReactDOM.render(<App />, document.querySelector('#root'));
