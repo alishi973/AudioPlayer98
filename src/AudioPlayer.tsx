@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 
 const link = 'https://nex1music.ir/upload/153452501374701878octave-savage-nist.jpg';
-const simpleMusicLink = 'https://www.w3schools.com/html/horse.ogg';
-// const simpleMusicLink = 'https://dl.nex1music.ir/1397/05/26/Octave%20-%20Savage%20Nist%20[128].mp3?time=1591897792&filename=/1397/05/26/Octave%20-%20Savage%20Nist%20[128].mp3';
+// const simpleMusicLink = 'https://www.w3schools.com/html/horse.ogg';
+const simpleMusicLink = 'http://dl.nex1music.com/1397/05/26/Octave - Savage Nist [128].mp3';
 
 const AudioPlayer = (props) => {
   const [music, musicSet] = useState({ audioLink: null, audio: null, isPlayed: false });
   const onPlayClick = () => {
     if (!music.audio) {
       const fileLink = 'https://cors-anywhere.herokuapp.com/' + simpleMusicLink;
-
-      /* fetch('https://cors-anywhere.herokuapp.com/' + simpleMusicLink)
-        .then((res) => res.arrayBuffer())
-        .then((blob) => {
-          console.log(blob);
-          const audioContext = new AudioContext();
-          const audioSource = audioContext.createBufferSource();
-          audioContext.decodeAudioData(blob, (res) => {
-            audioSource.buffer = res;
-            audioSource.connect(audioContext.destination);
-            audioSource.start();
-          });
-          // musicSet((lastMusic) => ({ ...lastMusic, audio: new AudioBuffer().copyFromChannel(blob) }));
-        }); */
       const audioContext = new AudioContext();
       const audioSource = audioContext.createBufferSource();
 
@@ -39,14 +26,17 @@ const AudioPlayer = (props) => {
           audioSource.connect(audioContext.destination);
           audioSource.start();
         });
-        console.log(file);
+        musicSet((latMusic) => ({ ...latMusic, audio: audioContext }))
       };
     }
-
+    else {
+      console.log(music)
+      music.audio.stop()
+    }
     musicSet((lastMusic) => ({ ...lastMusic, isPlayed: !lastMusic.isPlayed }));
   };
 
-  useEffect(() => {}, [music]);
+  useEffect(() => { }, [music]);
   return (
     <div className='window'>
       <div className='title-bar'>
